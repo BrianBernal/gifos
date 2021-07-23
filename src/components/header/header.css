@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+.theme-button {
+  width: 148px;
+  height: 43px;
+  border-radius: 61px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #6809e1;
+  border-color: #6809e1;
+  font-weight: bold;
+}
+
+.dark-theme-button {
+  border-color: #ffffff;
+  color: #ffffff;
+}
