@@ -1,0 +1,11 @@
+.results-section {
+  background-color: #e7e7e7;
+  margin: 0;
+  border: none;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.dark-results-section {
+  background-color: #212121;
+}

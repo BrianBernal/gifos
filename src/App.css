@@ -65,3 +65,7 @@ input::placeholder {
   border: #ffffff solid 1px;
   color: #ffffff;
 }
+
+.normal-weight {
+  font-weight: normal;
+}

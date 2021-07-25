@@ -1,11 +1,12 @@
 // hooks
 import useGetThemeClass from "../hooks/useGetThemeClass";
 
-// components
-import Header from "../components/header/Header";
-
 // styles
 import "./home.css";
+
+// components
+import Header from "../components/header/Header";
+import ImagesGrid from "../components/imagesGrid/ImagesGrid";
 
 function Home() {
   const classStringApp = useGetThemeClass("app");
@@ -13,9 +14,9 @@ function Home() {
   return (
     <div className={classStringApp}>
       <div className="main-container">
-        <div className="top-section">
+        <section className="top-section">
           <Header />
-          <h1>
+          <h1 className="normal-weight">
             ¡Inspírate y busca los mejores <b>GIFS</b>!
           </h1>
           <span className="bg-friends" />
@@ -29,9 +30,11 @@ function Home() {
               <img src="images/icon-search-mod-noc.svg" alt="Search" />
             </button>
           </div>
-          <h2>Resultados de la búsqueda</h2>
-        </div>
-        <div>List</div>
+          <h2 className="normal-weight results-title">
+            Resultados de la búsqueda
+          </h2>
+        </section>
+        <ImagesGrid />
       </div>
     </div>
   );

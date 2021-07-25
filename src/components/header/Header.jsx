@@ -17,9 +17,15 @@ const CHANGE_THEME = {
 function Header() {
   const { setState } = useContext(AppContext);
   const classStringButton = useGetThemeClass("theme-button");
-  const imageLogo = useIsDarkMode(
-    "images/logo-mobile-modo-noct.svg",
-    "images/logo-desktop.svg"
+  const theming = useIsDarkMode(
+    {
+      logo: "images/logo-mobile-modo-noct.svg",
+      textMode: "LIGHT",
+    },
+    {
+      logo: "images/logo-desktop.svg",
+      textMode: "DARK",
+    }
   );
 
   const handlerThemeButton = () => {
@@ -31,9 +37,9 @@ function Header() {
 
   return (
     <header className="header">
-      <img src={imageLogo} alt="Logo" className="main-logo" />
+      <img src={theming.logo} alt="Logo" className="main-logo" />
       <button onClick={handlerThemeButton} className={classStringButton}>
-        MODO DARK
+        MODO {theming.textMode}
       </button>
     </header>
   );
