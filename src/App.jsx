@@ -5,7 +5,7 @@ import { StrictMode } from "react";
 import "./App.css";
 
 // context
-import AppProvider from "./components/context/AppProvider";
+import AppProvider from "./context/AppProvider";
 
 // components
 import Home from "./pages/Home";

@@ -2,7 +2,7 @@
 import { useContext } from "react";
 
 // context
-import { AppContext } from "../components/context/AppContext";
+import { AppContext } from "../context/AppContext";
 
 /**
  * Can concat "dark-" to a base classname

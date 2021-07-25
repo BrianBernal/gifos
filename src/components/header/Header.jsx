@@ -3,7 +3,7 @@ import { useContext } from "react";
 import "./header.css";
 
 // context
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 // hooks
 import useGetThemeClass from "../../hooks/useGetThemeClass";
