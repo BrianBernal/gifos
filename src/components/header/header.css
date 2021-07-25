@@ -1,17 +1,19 @@
 .header {
   display: flex;
-  justify-content: space-between;
   padding: 2rem 4rem;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .theme-button {
-  width: 148px;
-  height: 43px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   border-radius: 61px;
   background-color: rgba(0, 0, 0, 0);
   color: #6809e1;
   border-color: #6809e1;
   font-weight: bold;
+  height: 2rem;
 }
 
 .dark-theme-button {

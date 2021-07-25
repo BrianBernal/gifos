@@ -7,6 +7,7 @@ import { AppContext } from "../context/AppContext";
 
 // hooks
 import useGetThemeClass from "../../hooks/useGetThemeClass";
+import useIsDarkMode from "../../hooks/useIsDarkMode";
 
 const CHANGE_THEME = {
   light: "dark",
@@ -16,6 +17,10 @@ const CHANGE_THEME = {
 function Header() {
   const { setState } = useContext(AppContext);
   const classStringButton = useGetThemeClass("theme-button");
+  const imageLogo = useIsDarkMode(
+    "images/logo-mobile-modo-noct.svg",
+    "images/logo-desktop.svg"
+  );
 
   const handlerThemeButton = () => {
     setState((prevState) => ({
@@ -26,7 +31,7 @@ function Header() {
 
   return (
     <header className="header">
-      <img src="images/logo-desktop.svg" alt="Logo" />
+      <img src={imageLogo} alt="Logo" />
       <button onClick={handlerThemeButton} className={classStringButton}>
         MODO DARK
       </button>
