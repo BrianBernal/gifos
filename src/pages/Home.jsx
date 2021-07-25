@@ -18,12 +18,17 @@ function Home() {
           <h1>
             ¡Inspírate y busca los mejores <b>GIFS</b>!
           </h1>
-          <input
-            type="text"
-            placeholder="Busca gifs"
-            className="search-input"
-          />
-          <button className="search-button">Search</button>
+          <span className="bg-friends" />
+          <div className="form">
+            <input
+              type="text"
+              placeholder="Busca gifs"
+              className="search-input"
+            />
+            <button className="search-button">
+              <img src="images/icon-search-mod-noc.svg" alt="Search" />
+            </button>
+          </div>
           <h2>Resultados de la búsqueda</h2>
         </div>
         <div>List</div>

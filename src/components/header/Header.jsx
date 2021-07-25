@@ -31,7 +31,7 @@ function Header() {
 
   return (
     <header className="header">
-      <img src={imageLogo} alt="Logo" />
+      <img src={imageLogo} alt="Logo" className="main-logo" />
       <button onClick={handlerThemeButton} className={classStringButton}>
         MODO DARK
       </button>

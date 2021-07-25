@@ -2,7 +2,11 @@
   display: flex;
   padding: 2rem 4rem;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.main-logo {
+  width: 4rem;
 }
 
 .theme-button {
