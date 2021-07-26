@@ -1,1 +1,1 @@
-export const INITIAL_VALUE = { theme: "light", data: [] };
+export const INITIAL_VALUE = { theme: "light" };

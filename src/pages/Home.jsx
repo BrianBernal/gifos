@@ -1,8 +1,15 @@
+// react
+import { useState } from "react";
+
 // hooks
 import useGetThemeClass from "../hooks/useGetThemeClass";
+import useFetch from "../hooks/useFetch";
 
 // styles
 import "./home.css";
+
+// services
+import { searchService } from "../api";
 
 // components
 import Header from "../components/header/Header";
@@ -10,6 +17,24 @@ import ImagesGrid from "../components/imagesGrid/ImagesGrid";
 
 function Home() {
   const classStringApp = useGetThemeClass("app");
+  const { success, error, loading, fetchService } = useFetch();
+  const [inputText, setInputText] = useState("");
+  const [images, setImages] = useState([]);
+  const params = {
+    q: inputText,
+    limit: 12,
+  };
+
+  const addImages = (res) => {
+    setImages(
+      res.data.map((i) => ({
+        url: i.images.downsized.url,
+        title: i.title,
+      }))
+    );
+  };
+
+  const handleSearchGifs = () => fetchService(searchService(params), addImages);
 
   return (
     <div className={classStringApp}>
@@ -22,11 +47,13 @@ function Home() {
           <span className="bg-friends" />
           <div className="form">
             <input
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
               type="text"
               placeholder="Busca gifs"
               className="search-input"
             />
-            <button className="search-button">
+            <button className="search-button" onClick={handleSearchGifs}>
               <img src="images/icon-search-mod-noc.svg" alt="Search" />
             </button>
           </div>
@@ -34,7 +61,9 @@ function Home() {
             Resultados de la búsqueda
           </h2>
         </section>
-        <ImagesGrid />
+        {loading && "loading"}
+        {error.isError && "error"}
+        {success.isSuccess && <ImagesGrid elements={images} />}
       </div>
     </div>
   );
