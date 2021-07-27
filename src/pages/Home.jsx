@@ -45,13 +45,21 @@ function Home() {
           </h1>
           <span className="bg-friends" />
           <div className="form">
-            <input
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              type="text"
-              placeholder="Busca gifs"
-              className="search-input"
-            />
+            <div className="search-wrapper">
+              <input
+                required
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                type="text"
+                placeholder="Busca gifs"
+                className="search-input search-box"
+              />
+              <button
+                className="close-icon"
+                type="button"
+                onClick={() => setInputText("")}
+              ></button>
+            </div>
             <button className="search-button" onClick={handleSearchGifs}>
               <img src="images/icon-search-mod-noc.svg" alt="Search" />
             </button>
