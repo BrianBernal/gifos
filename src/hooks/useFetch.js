@@ -17,14 +17,14 @@ function useFetch() {
       const dataResponse = await res.json();
       if (!res.ok) {
         throw new Error(
-          dataResponse.message || `${res.status}: ${res.statusText}`
+          dataResponse.message || res.statusText || "Connection error"
         );
       }
       setSuccess({ isSuccess: true, data: dataResponse });
       successFn(dataResponse);
     } catch (error) {
       setSuccess(INITIAL_SUCCESS);
-      setError({ isError: true, error: error });
+      setError({ isError: true, error: error.message });
       if (typeof failFn === "function") failFn(error);
     } finally {
       setLoading(false);

@@ -14,16 +14,15 @@ import { searchService } from "../api";
 // components
 import Header from "../components/header/Header";
 import ImagesGrid from "../components/imagesGrid/ImagesGrid";
+import Loader from "../components/loader/Loader";
+import ErrorMessage from "../components/error/ErrorMessage";
 
 function Home() {
   const classStringApp = useGetThemeClass("app");
-  const { success, error, loading, fetchService } = useFetch();
+  const { error, loading, fetchService } = useFetch();
   const [inputText, setInputText] = useState("");
   const [images, setImages] = useState([]);
-  const params = {
-    q: inputText,
-    limit: 12,
-  };
+  const params = { q: inputText, limit: 12 };
 
   const addImages = (res) => {
     setImages(
@@ -61,9 +60,8 @@ function Home() {
             Resultados de la búsqueda
           </h2>
         </section>
-        {loading && "loading"}
-        {error.isError && "error"}
-        {success.isSuccess && <ImagesGrid elements={images} />}
+        {error.isError && <ErrorMessage message={error.error} />}
+        {loading ? <Loader /> : <ImagesGrid elements={images} />}
       </div>
     </div>
   );

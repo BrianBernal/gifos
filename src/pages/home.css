@@ -1,7 +1,8 @@
 .app {
   background-color: #ffffff;
   color: #572ee5;
-  height: 100vh;
+  min-height: 100vh;
+  height: max-content;
 }
 
 .dark-app {
