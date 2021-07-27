@@ -52,7 +52,7 @@ function Home() {
                 onChange={(e) => setInputText(e.target.value)}
                 type="text"
                 placeholder="Busca gifs"
-                className="search-input search-box"
+                className="search-input"
               />
               <button
                 className="close-icon"

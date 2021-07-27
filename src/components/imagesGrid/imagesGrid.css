@@ -4,8 +4,17 @@
   border: none;
   padding: 2rem 1rem;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dark-results-section {
   background-color: #212121;
+}
+
+.gif-element {
+  width: 30%;
+  margin-bottom: 1rem;
 }

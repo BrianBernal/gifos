@@ -11,7 +11,14 @@ function ImagesGrid({ elements = [] }) {
     <section className={sectionStringClass}>
       {elements.length === 0
         ? "Ingresa una busqueda..."
-        : elements.map((i) => <img key={i.url} src={i.url} alt={i.title} />)}
+        : elements.map((i) => (
+            <img
+              key={i.url}
+              src={i.url}
+              alt={i.title}
+              className="gif-element"
+            />
+          ))}
     </section>
   );
 }
