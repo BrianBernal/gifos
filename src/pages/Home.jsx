@@ -9,7 +9,7 @@ import useFetch from "../hooks/useFetch";
 import "./home.css";
 
 // services
-import { searchService } from "../api";
+import { searchService } from "../api/services";
 
 // components
 import Header from "../components/header/Header";
