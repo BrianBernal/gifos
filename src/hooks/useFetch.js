@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const INITIAL_ERROR = { isError: false, error: null };
-const INITIAL_SUCCESS = { isSuccess: false, data: {} };
+const INITIAL_SUCCESS = { isSuccess: false, res: {} };
 
 function useFetch() {
   const [error, setError] = useState(INITIAL_ERROR);
@@ -20,8 +20,8 @@ function useFetch() {
           dataResponse.message || res.statusText || "Connection error"
         );
       }
-      setSuccess({ isSuccess: true, data: dataResponse });
-      successFn(dataResponse);
+      setSuccess({ isSuccess: true, res: dataResponse });
+      if (typeof successFn === "function") successFn(dataResponse);
     } catch (error) {
       setSuccess(INITIAL_SUCCESS);
       setError({ isError: true, error: error.message });

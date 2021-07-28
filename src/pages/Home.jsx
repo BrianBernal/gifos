@@ -1,5 +1,5 @@
 // react
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // hooks
 import useGetThemeClass from "../hooks/useGetThemeClass";
@@ -19,21 +19,23 @@ import ErrorMessage from "../components/error/ErrorMessage";
 
 function Home() {
   const classStringApp = useGetThemeClass("app");
-  const { error, loading, fetchService } = useFetch();
+  const { success, error, loading, fetchService } = useFetch();
   const [inputText, setInputText] = useState("");
   const [images, setImages] = useState([]);
   const params = { q: inputText, limit: 12 };
 
-  const addImages = (res) => {
-    setImages(
-      res.data.map((i) => ({
-        url: i.images.downsized.url,
-        title: i.title,
-      }))
-    );
-  };
+  useEffect(() => {
+    if (Array.isArray(success.res.data)) {
+      setImages(
+        success.res.data.map((i) => ({
+          url: i.images?.downsized?.url,
+          title: i.title,
+        }))
+      );
+    }
+  }, [success.res?.data]);
 
-  const handleSearchGifs = () => fetchService(searchService(params), addImages);
+  const handleSearchGifs = () => fetchService(searchService(params));
 
   return (
     <div className={classStringApp}>
