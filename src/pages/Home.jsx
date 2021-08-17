@@ -48,18 +48,25 @@ function Home() {
     }
   }, [successOptions.res]);
 
-  const handleSearchGifts = () => fetchService(searchService(params));
+  const handleSearchGifts = () => {
+    fetchService(searchService(params));
+    setSearchOptions([]);
+  };
 
   const handleEnterKey = ({ key }) => {
     if (key === "Enter") handleSearchGifts();
   };
 
-  const handleSelectingOption = (option) => setInputText(option);
+  const handleSelectingOption = (option) => {
+    setInputText(option);
+    fetchService(searchService({ ...params, q: option }));
+    setSearchOptions([]);
+  };
 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInputText(value);
-    if (value.length % 2 === 0) {
+    if (value.length || value.length % 2 === 0) {
       fetchServiceOptions(autocompleteService({ q: value }));
     }
   };
