@@ -1,5 +1,5 @@
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 :root {
@@ -28,13 +28,18 @@ h3 {
   text-align: center;
 }
 
+h1 {
+  font-size: 36px;
+}
+
 button {
   background-color: #572ee5;
   color: #ffffff;
   border: #000000 1px solid;
   font-family: var(--font-family);
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 10px;
+  height: 3rem;
 }
 
 button:hover {
@@ -51,10 +56,11 @@ button:active {
 
 input {
   border: 1px solid #121212;
-  border-radius: 61px;
+  border-radius: 30px;
   color: #000000;
   font-family: var(--font-family);
-  padding: 0.5rem 1rem;
+  padding: 0;
+  height: 3rem;
 }
 
 input::placeholder {
@@ -69,3 +75,21 @@ input::placeholder {
 .normal-weight {
   font-weight: normal;
 }
+
+/* show options */
+.hide-border {
+  border: none;
+}
+
+.hide-border:focus {
+  box-shadow: none;
+}
+
+.hide-background {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.display-none {
+  display: none;
+}
+/* end show options */
